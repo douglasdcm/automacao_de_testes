@@ -1,4 +1,4 @@
-# Instalação
+# Instalação e execução do exemplo
 - Crie um ambiente virtual (virtual environment) usando a sua versão padrão do Python
 ```
 python3 -m venv venv

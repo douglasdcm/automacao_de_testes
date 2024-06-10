@@ -27,3 +27,11 @@ java -jar ApacheJMeter.jar
 ```
 - O programa é inicializado
 ![alt text](jmeter-starter-page.png)
+
+# Execução do exemplo
+- Vá à opção `File > Open`, navegue até o arquivo `./ferramentas/jmeter/sample.jmx` e o abra.
+![alt text](image.png)
+- Selecione o nó `Test Plan` e execute o test clicando no botão ![alt text](image-1.png) do menu principal
+- Clique em `Summary Report` para ver os tempos de resposta e
+- Clique em `View Results Tree` e selecione `HTML` para ver as páginas renderizadas
+![alt text](image-2.png)
