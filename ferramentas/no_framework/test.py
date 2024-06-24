@@ -18,13 +18,13 @@ def test_sum_two_numbers():
 
         # assert
         _assert(
-            test_sum_1_and_0_return_1,
+            test_sum_1_and_0_returns_1,
             actual,
             expected,
         )
 
 
-def test_sum_1_and_0_return_1():
+def test_sum_1_and_0_returns_1():
     # arrange
     x = 1
     y = 0
@@ -35,13 +35,13 @@ def test_sum_1_and_0_return_1():
 
     # assert
     _assert(
-        test_sum_1_and_0_return_1,
+        test_sum_1_and_0_returns_1,
         actual,
         expected,
     )
 
 
-def test_sum_1_and_3_return_4():
+def test_sum_1_and_3_returns_4():
     # arrange
     x = 1
     y = 3
@@ -52,7 +52,7 @@ def test_sum_1_and_3_return_4():
 
     # assert
     _assert(
-        test_sum_1_and_3_return_4,
+        test_sum_1_and_3_returns_4,
         actual,
         expected,
     )
@@ -72,6 +72,6 @@ def _assert(
 
 
 if __name__ == "__main__":
-    test_sum_1_and_3_return_4()
-    test_sum_1_and_0_return_1()
+    test_sum_1_and_3_returns_4()
+    test_sum_1_and_0_returns_1()
     test_sum_two_numbers()

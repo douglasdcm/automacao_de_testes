@@ -6,7 +6,7 @@ from caqui.easy.capabilities import CapabilitiesBuilder
 from os import getcwd
 
 BASE_DIR = getcwd()
-PAGE_URL = f"file:///{BASE_DIR}/ferramentas/caqui/page.html"
+PAGE_URL = f"file:///{BASE_DIR}/page.html"
 
 BASE_DIR = getcwd()
 
