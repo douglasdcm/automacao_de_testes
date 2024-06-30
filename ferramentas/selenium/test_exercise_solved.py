@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-def test_eight_components():
+def test_sample_page():
     driver = webdriver.Chrome()
 
     driver.get("file:///home/douglas/sample.html")

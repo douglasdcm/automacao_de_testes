@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-def test_eight_components():
+def test_sample_page():
     file_path = pathlib.Path(__file__).parent.resolve()
     driver = webdriver.Chrome()
     driver.get(f"file:////{file_path}/sample.html")
