@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 from selenium.webdriver.common.by import By
 
 
@@ -9,8 +10,8 @@ class Pom:
     def access_url(self, url):
         self.__driver.get(url)
         title = self.__driver.title
-        assert title == "Sample page"
         self.__driver.implicitly_wait(0.5)
+        return title
 
     def submit_field(self, text):
         text_box = self.__driver.find_element(by=By.ID, value="input")
@@ -20,10 +21,9 @@ class Pom:
         submit_button.click()
         return from_input
 
-    def result_text(self, from_input):
-        message = self.__driver.find_element(by=By.ID, value="result")
-        value = message.text
-        assert value == f"It workls! {from_input}!"
+    def result_text(self):
+        return self.__driver.find_element(by=By.ID, value="result").text
 
     def close(self):
+        self.__driver.get_screenshot_as_file(f"./test{datetime.now()}.png")
         self.__driver.quit()
