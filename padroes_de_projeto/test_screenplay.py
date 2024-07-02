@@ -1,3 +1,6 @@
+# Referências
+# https://screenpy-docs.readthedocs.io/en/latest/example/all_together.html
+
 from screenpy import AnActor, given, then, when
 from screenpy.actions import See
 
