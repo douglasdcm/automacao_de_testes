@@ -18,3 +18,6 @@ python -m pytest -k test_selenium.py
 - Esta página será exibida no browser e os comandos do script serão executados nela
 
 ![alt text](image.png)
+
+# Referências
+- [Selenium WebDriver Documentation](https://www.selenium.dev/documentation/webdriver/)

@@ -33,3 +33,5 @@ Feature: Fight or flight # features/ninja.feature:1
 Took 0m0.001s
 
 ```
+# Referências
+- [Tutorial](https://behave.readthedocs.io/en/latest/tutorial/)

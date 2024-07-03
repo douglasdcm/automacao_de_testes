@@ -35,3 +35,5 @@ java -jar ApacheJMeter.jar
 - Clique em `Summary Report` para ver os tempos de resposta e
 - Clique em `View Results Tree` e selecione `HTML` para ver as páginas renderizadas
 ![alt text](image-2.png)
+# Referências
+- https://jmeter.apache.org/usermanual/get-started.html
