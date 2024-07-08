@@ -15,3 +15,5 @@ Outro exemplo agora usando um framework de testes:
 python -m pytest ./examples/test_demo.py
 ```
 Procure o log e screeshots na pasta `/tmp/dogtail-*`
+
+Mais informações em https://wiki.ubuntu.com/Testing/Automation/DogtailTutorial
