@@ -1,5 +1,5 @@
 # Requisitos:
-# - Uma função que divide dois números inteiros e retorne o resultado
+# - Uma função que divide dois números inteiros e retorna o resultado
 # - Se o divisor for zero, retorna zero
 # - Arredonda o resultado para cima
 # - Se qualquer dos números não for inteiro retorna erro
