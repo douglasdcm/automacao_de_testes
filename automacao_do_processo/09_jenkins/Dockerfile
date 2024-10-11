@@ -31,6 +31,8 @@ RUN apt-get install libatk-bridge2.0-0 -y
 RUN apt-get install libcups2 -y
 RUN apt install libgtk-3-dev -y
 RUN apt-get install libgtk-4-1 -y
+# RUN dpkg -i google-chrome-stable_current_amd64.deb
+ADD . .
 RUN dpkg -i google-chrome-stable_current_amd64.deb
 USER jenkins
 # RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"

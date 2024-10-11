@@ -13,27 +13,30 @@
 # - 3 dividido por 1.5 retorna erro
 
 from src import my_function
+import pytest
 
 
 def test_3_divido_por_1_retorna_3():
-    raise NotImplementedError
+    assert my_function(3, 1) == 3
 
 
 def test_3_dividido_por_2_retorna_2():
-    raise NotImplementedError
+    assert my_function(3, 2) == 2
 
 
 def test_3_dividido_por_0_retorna_0():
-    raise NotImplementedError
+    assert my_function(3, 0) == 0
 
 
 def test_3_dividido_por_menos1_retorna_menos3():
-    raise NotImplementedError
+    assert my_function(3, -1) == -3
 
 
 def test_3ponto5_dividido_por_1_retorna_erro():
-    raise NotImplementedError
+    with pytest.raises(Exception):
+        my_function(3.5, 1)
 
 
 def test_3_dividido_por_1ponto5_retorna_erro():
-    raise NotImplementedError
+    with pytest.raises(Exception):
+        my_function(3, 1.5)
