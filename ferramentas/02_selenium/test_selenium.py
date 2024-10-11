@@ -20,10 +20,10 @@ def test_demo():
     # options.add_argument(r"--user-data-dir=~/.config/google-chrome/")
     # options.add_argument("--remote-debugging-pipe")
 
-    driver = webdriver.Chrome(
-        options=options, service=ChromeService(ChromeDriverManager().install())
-    )
-    # driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Chrome(
+    #     options=options, service=ChromeService(ChromeDriverManager().install())
+    # )
+    driver = webdriver.Chrome(options=options)
     driver.get("https://www.selenium.dev/selenium/web/web-form.html")
 
     title = driver.title
