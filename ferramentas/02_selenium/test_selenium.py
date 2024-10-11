@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
 
+# Folder on Jenkins in Docker
 # ~/.cache/selenium/chromedriver/linux64/129.0.6668.100
 def test_demo():
     options = ChromeOptions()
@@ -14,9 +15,8 @@ def test_demo():
     options.add_argument("start-maximized")
     options.add_argument("disable-infobars")
     options.add_argument("--disable-extensions")
-    # options.add_argument("--disable-gpu")
     options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--no-sandbox")
+    # options.add_argument("--no-sandbox")
 
     driver = webdriver.Chrome(
         options=options, service=ChromeService(ChromeDriverManager().install())
