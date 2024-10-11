@@ -18,7 +18,7 @@ def test_demo():
     # options.add_argument("--disable-extensions")
     # options.add_argument("--no-sandbox")
     # options.add_argument(r"--user-data-dir=~/.config/google-chrome/")
-    options.add_argument("--remote-debugging-pipe")
+    # options.add_argument("--remote-debugging-pipe")
 
     driver = webdriver.Chrome(
         options=options, service=ChromeService(ChromeDriverManager().install())
