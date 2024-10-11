@@ -1,11 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver import ChromeOptions
 
 
 def test_demo():
-    driver = webdriver.Chrome()
-
+    options = ChromeOptions()
+    options.add_argument("--headless=new")
+    driver = webdriver.Chrome(options=options)
     driver.get("https://www.selenium.dev/selenium/web/web-form.html")
 
     title = driver.title
