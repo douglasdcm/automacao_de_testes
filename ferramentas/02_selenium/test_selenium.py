@@ -10,13 +10,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 # ~/.cache/selenium/chromedriver/linux64/129.0.6668.100
 def test_demo():
     options = ChromeOptions()
-    options.headless = True
-    # options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
     # options.add_argument("--disable-dev-shm-usage")
     # options.add_argument("start-maximized")
     # options.add_argument("disable-infobars")
     # options.add_argument("--disable-extensions")
     # options.add_argument("--no-sandbox")
+    options.add_argument(r"--user-data-dir=~/.config/google-chrome/")
     # options.add_argument("--remote-debugging-pipe")
 
     driver = webdriver.Chrome(
