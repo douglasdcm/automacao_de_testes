@@ -1,12 +1,11 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: build
-
 on:
   push:
     branches:
-      - '**'
-
+      - "**"
+  workflow_dispatch:
 jobs:
   python-build:
     steps:
@@ -16,3 +15,10 @@ jobs:
         uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
         with:
           language: LANGUAGE_PYTHON
+  test-selenium:
+    steps:
+      - uses: cloudbees-io/publish-test-results@v1
+        name: test selenium
+        kind: test
+        with:
+          test-type: SELENIUM
