@@ -1,0 +1,18 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: build
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  python-build:
+    steps:
+      - name: checkout
+        uses: cloudbees-io/checkout@v1
+      - name: scan
+        uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
+        with:
+          language: LANGUAGE_PYTHON
