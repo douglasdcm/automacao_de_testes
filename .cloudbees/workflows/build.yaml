@@ -22,6 +22,5 @@ jobs:
         kind: test
         with:
           test-type: SELENIUM
-        run: |
-          echo "hello world"
+          folder-name: /ferramentas/02_selenium
 
