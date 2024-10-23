@@ -22,3 +22,6 @@ jobs:
         kind: test
         with:
           test-type: SELENIUM
+        run: |
+          echo "hello world"
+
