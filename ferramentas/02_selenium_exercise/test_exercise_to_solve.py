@@ -14,7 +14,6 @@ def test_sample_page():
 
     driver = webdriver.Chrome(options=options)
 
-    driver = webdriver.Chrome()
     driver.get(f"file:////{file_path}/sample-exercise_.html")
     generate_code(driver)
     sleep(5)
