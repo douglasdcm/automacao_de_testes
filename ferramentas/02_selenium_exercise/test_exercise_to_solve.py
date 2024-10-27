@@ -9,7 +9,8 @@ from selenium.webdriver import ChromeOptions
 def test_sample_page():
     file_path = pathlib.Path(__file__).parent.resolve()
     options = ChromeOptions()
-    options.add_argument("--headless=new")
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
 
     driver = webdriver.Chrome(options=options)
 
