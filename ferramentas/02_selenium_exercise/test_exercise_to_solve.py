@@ -28,7 +28,7 @@ def test_sample_page():
     alert.accept()
 
     result = driver.find_element(By.ID, "result")
-    assert result.text == f"It workls! {code.text}! xxx"
+    assert result.text == f"It workls! {code.text}!"
 
     driver.quit()
 
