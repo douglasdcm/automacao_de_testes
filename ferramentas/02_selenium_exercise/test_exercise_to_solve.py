@@ -3,11 +3,17 @@ import pathlib
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
+from selenium.webdriver import ChromeOptions
 
 
 def test_sample_page():
     file_path = pathlib.Path(__file__).parent.resolve()
-    driver = webdriver.Chrome()
+
+    options = ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(options=options)
+
     driver.get(f"file:////{file_path}/sample-exercise_.html")
     generate_code(driver)
     sleep(5)
