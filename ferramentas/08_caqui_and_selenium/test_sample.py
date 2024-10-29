@@ -18,7 +18,6 @@ def test_convert_selenium_to_caqui_1():
             {"goog:chromeOptions": {"extensions": [], "args": ["--headless"]}}
         )
     ).build()
-    print(capa)
     session = synchronous.get_session(driver_url, capabilities)
 
     # driver.get("https://www.selenium.dev/selenium/web/web-form.html")
