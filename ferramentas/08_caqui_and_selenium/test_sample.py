@@ -13,11 +13,12 @@ def test_convert_selenium_to_caqui_1():
         CapabilitiesBuilder()
         .browser_name("chrome")
         .accept_insecure_certs(True)
-        .timeouts(TimeoutsBuilder().implicit(0.5).build())
+        .timeouts(TimeoutsBuilder().implicit(1).build())
         .additional_capability(
             {"goog:chromeOptions": {"extensions": [], "args": ["--headless"]}}
         )
     ).build()
+    print(capa)
     session = synchronous.get_session(driver_url, capabilities)
 
     # driver.get("https://www.selenium.dev/selenium/web/web-form.html")
