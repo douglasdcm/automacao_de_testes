@@ -1,6 +1,6 @@
 text = "Hello world"
 
-click(Region(358,77,182,28))
+click(Region(358, 77, 182, 28))
 type("www.google.com")
 
 # Garantir que a imagem não é confundida com outra.
@@ -18,4 +18,3 @@ if not exists("1718591451379.png"):
     raise Exception("Not found.")
 
 click("1718589344254.png")
-

@@ -1,16 +1,20 @@
-from behave import *
+from behave import (
+    given,
+    when,
+    then,
+)  # pylint: disable=no-name-in-module
 
 
 @given("we have behave installed")
-def step_impl(context):
+def is_behave_installed(context):
     pass
 
 
 @when("we implement a test")
-def step_impl(context):
+def implement(context):
     assert True is not False
 
 
 @then("behave will test it for us!")
-def step_impl(context):
+def test_it(context):
     assert context.failed is False

@@ -1,6 +1,5 @@
 #!flask/bin/python
 
-import json
 from flask import Flask
 from waitress import serve
 
