@@ -14,5 +14,16 @@ class Application:
     def __init__(self, driver):
         self._driver = driver
 
-    def perform(self, transaction: AbstractTransaction, **kwargs):
-        return transaction(self._driver).do(**kwargs)
+    @property
+    def result(self):
+        return self._result
+
+    def at_page(self, transaction: AbstractTransaction, **kwargs):
+        self._result = transaction(self._driver).do(**kwargs)
+        return self
+
+    def assert_equals(self, content):
+        assert self._result == content
+
+    def assert_contains(self, content):
+        assert content in self._result

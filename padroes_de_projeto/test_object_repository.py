@@ -42,7 +42,7 @@ FILE_PATH = pathlib.Path(__file__).parent.resolve()
 def configure():
     driver = webdriver.Chrome()
     yield driver
-    driver.get_screenshot_as_file(f"./test{datetime.now()}.png")
+    driver.get_screenshot_as_file(f"/tmp/test{datetime.now()}.png")
     driver.quit()
 
 
