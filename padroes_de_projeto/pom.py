@@ -25,5 +25,5 @@ class HomePage:
         return self.__driver.find_element(by=By.ID, value="result").text
 
     def close_page(self):
-        self.__driver.get_screenshot_as_file(f"./test{datetime.now()}.png")
+        self.__driver.get_screenshot_as_file(f"/tmp/test{datetime.now()}.png")
         self.__driver.quit()
