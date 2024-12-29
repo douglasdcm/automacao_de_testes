@@ -37,9 +37,9 @@ class CaquiTest(TemplateTest):
             .browser_name("chrome")
             .accept_insecure_certs(True)
             .timeouts(TimeoutsBuilder().implicit(1).build())
-            # .additional_capability(
-            #     {"goog:chromeOptions": {"extensions": [], "args": ["--headless"]}}
-            # )
+            .additional_capability(
+                {"goog:chromeOptions": {"extensions": [], "args": ["--headless"]}}
+            )
         ).build()
         self._session = synchronous.get_session(self._page, capabilities)
         self._hp = HomePageCaqui(self._page, self._session)

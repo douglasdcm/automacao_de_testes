@@ -1,27 +1,32 @@
+from behave import (
+    given,
+    when,
+    then,
+)  # pylint: disable=no-name-in-module
 from src.ninja import Ninja, NinjaLevel, Opponent
 
 
 @given("the ninja has a third level black-belt")
-def step_impl(context):
+def ninja_level(context):
     ninja = Ninja()
     ninja.level = NinjaLevel.THRID_BLACK_BELT.value
     context.ninja = ninja
 
 
 @when("attacked by a samurai")
-def step_impl(context):
+def attacked_by_weaker_opponent(context):
     ninja: Ninja = context.ninja
     battle_result = ninja.take_opponent(Opponent.SAMURAI)
     context.battle_result = battle_result
 
 
 @then("the ninja should engage the opponent")
-def step_impl(context):
+def engage(context):
     assert context.battle_result == "engage the opponent!!!"
 
 
 @when("attacked by Chuck Norris")
-def step_impl(context):
+def attacked_by_powerfull_opponent(context):
     ninja: Ninja = context.ninja
     battle_result = ninja.take_opponent(Opponent.CHUCK_NORIS)
     context.battle_result = battle_result

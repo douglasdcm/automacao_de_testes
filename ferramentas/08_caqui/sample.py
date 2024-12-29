@@ -1,7 +1,6 @@
 import asyncio
 import time
 from caqui import synchronous, asynchronous
-from os import getcwd
 from caqui.easy.capabilities import CapabilitiesBuilder
 from os import getcwd
 
