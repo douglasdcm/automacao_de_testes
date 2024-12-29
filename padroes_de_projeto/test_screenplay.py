@@ -8,7 +8,6 @@ import random
 import pathlib
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from screenpy.resolutions import BaseResolution
 from hamcrest.core.base_matcher import BaseMatcher
 
 
