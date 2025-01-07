@@ -3,5 +3,5 @@ Este projeto tem alguns exemplos de scripts de testes automatizados. Todo o mate
 
 # Run linter
 ```
-rm linter.txt; flake8 --exclude venv,venv*,env*,sikuli* --ignore=E501 --output-file linter.txt; clear; cat linter.txt
+flake8 --exclude venv,venv*,env*,sikuli* --ignore=E501
 ```
