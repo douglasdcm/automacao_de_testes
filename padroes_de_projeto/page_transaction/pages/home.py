@@ -1,10 +1,10 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
-from page_transaction.transaction import AbstractTransaction
+from guara.transaction import AbstractTransaction
 
 
-class GoTo(AbstractTransaction):
+class NavigateTo(AbstractTransaction):
     def __init__(self, driver):
         super().__init__(driver)
 
