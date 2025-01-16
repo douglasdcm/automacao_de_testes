@@ -1,3 +1,6 @@
+# More info about Page Transactions
+# https://github.com/douglasdcm/guara
+
 import pytest
 from selenium import webdriver
 from page_transaction.pages import home, contact, info
