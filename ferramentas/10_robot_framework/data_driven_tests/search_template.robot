@@ -1,13 +1,11 @@
 *** Settings ***
-Documentation     Resusable Test Case (Data-Driven).
+Documentation     Reusable Test Case (Data-Driven).
 Library           SeleniumLibrary
 Test Teardown     Close Browser
 
 *** Variables ***
 ${LOGIN URL}        http://www.google.com
 ${BROWSER}          Chrome
-${VALID PASSWORD}   foo
-${VALID USER}       foo
 
 *** Test Cases ***
 Search terms related to automation testing

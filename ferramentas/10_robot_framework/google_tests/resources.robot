@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     Resusable Keywords.
+Documentation     Reusable Keywords.
 Library           SeleniumLibrary
 
 *** Variables ***
