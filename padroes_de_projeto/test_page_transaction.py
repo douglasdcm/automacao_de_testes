@@ -16,7 +16,7 @@ class TestVpmTransaction:
             setup.OpenApp,
             url="https://vagaspramim.onrender.com/",
             window_width=1094,
-            window_hight=765,
+            window_height=765,
             implicitly_wait=0.5,
         )
 
@@ -66,47 +66,3 @@ def setup_application():
     app.at(setup.OpenApp, **configuration)
     yield app
     app.at(setup.CloseApp)
-
-
-def test_vpm_transaction_builder(setup_application):
-    app: Application = setup_application
-    text = "software testing"
-    restricted_similariy = "Similarity 10.7%"
-    expanded_similarity = "Similarity 15.4%"
-    content_in_english = "Content of curriculum"
-    content_in_portuguese = "Conteúdo do currículo"
-
-    app.at(home.ChangeToPortuguese).asserts(it.IsEqualTo, content_in_portuguese).at(
-        home.ChangeToEnglish
-    ).asserts(it.IsEqualTo, content_in_english).at(info.NavigateTo).asserts(
-        it.Contains,
-        "This project was born from the will of its collaborators to help people to find jobs more easily.",
-    ).at(
-        home.NavigateTo
-    ).asserts(
-        it.IsEqualTo, content_in_english
-    ).at(
-        contact.NavigateTo
-    ).asserts(
-        it.IsEqualTo, "Contact us. We would be happy to answer your questions."
-    ).at(
-        home.NavigateTo
-    ).asserts(
-        it.IsEqualTo, content_in_english
-    ).at(
-        home.DoRestrictedSearch, text=text, wait_for=restricted_similariy
-    ).asserts(
-        it.IsEqualTo, restricted_similariy
-    ).at(
-        home.NavigateTo
-    ).asserts(
-        it.IsEqualTo, content_in_english
-    ).at(
-        home.DoExpandedSearch, text=text, wait_for=expanded_similarity
-    ).asserts(
-        it.IsEqualTo, expanded_similarity
-    ).at(
-        home.NavigateTo
-    ).asserts(
-        it.IsEqualTo, content_in_english
-    )
