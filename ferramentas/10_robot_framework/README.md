@@ -23,9 +23,7 @@ robot --version
 # Instalação da biblioteca Selenium
 webdrivermanager --downloadpath . chrome
 
-# execute o teste
+# execute o teste pelo nome da pasta
 robot google_tests
-
-
 ```
 
