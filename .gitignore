@@ -1,5 +1,6 @@
-output.html
+*/**/output.xml
 report.html
+log.html
 selenium-screenshot*.png
 *.jar
 # Byte-compiled / optimized / DLL files
