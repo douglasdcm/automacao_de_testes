@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation     Resusable Keywords.
 Library           SeleniumLibrary
-Library           DataDriver
 
 *** Variables ***
 ${LOGIN URL}      http://www.google.com
