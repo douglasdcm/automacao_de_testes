@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.9 on linux)" generated="2025-01-16T15:43:47.189410" rpa="false" schemaversion="5">
+<suite id="s1" name="Google Tests" source="/home/douglas/repo/automacao_de_testes/ferramentas/10_robot_framework/google_tests">
+<suite id="s1-s1" name="Search Test" source="/home/douglas/repo/automacao_de_testes/ferramentas/10_robot_framework/google_tests/search_test.robot">
+<test id="s1-s1-t1" name="Search terms" line="13">
+<kw name="Open Browser To Search Page" owner="resources">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-16T15:43:47.415930" level="INFO">Opening browser 'Chrome' to base url 'http://www.google.com'.</msg>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-16T15:43:47.415393" elapsed="4.982466"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-16T15:43:52.407297" level="INFO">Page title is 'Google'.</msg>
+<arg>Google</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-01-16T15:43:52.398286" elapsed="0.009159"/>
+</kw>
+<status status="PASS" start="2025-01-16T15:43:47.414041" elapsed="4.993593"/>
+</kw>
+<kw name="Search Term selenium">
+<msg time="2025-01-16T15:43:52.410745" level="FAIL">No keyword with name 'Search Term selenium' found. Did you try using keyword 'resources.Search Term' and forgot to use enough whitespace between keyword and arguments?</msg>
+<status status="FAIL" start="2025-01-16T15:43:52.410654" elapsed="0.000174">No keyword with name 'Search Term selenium' found. Did you try using keyword 'resources.Search Term' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<kw name="All Tab Should Be Open" owner="resources">
+<status status="NOT RUN" start="2025-01-16T15:43:52.411190" elapsed="0.000062"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-16T15:43:52.411663" elapsed="0.169506"/>
+</kw>
+<status status="FAIL" start="2025-01-16T15:43:47.411388" elapsed="5.169997">No keyword with name 'Search Term selenium' found. Did you try using keyword 'resources.Search Term' and forgot to use enough whitespace between keyword and arguments?</status>
+</test>
+<doc>Search the terms on Google.</doc>
+<status status="FAIL" start="2025-01-16T15:43:47.220361" elapsed="5.361710"/>
+</suite>
+<status status="FAIL" start="2025-01-16T15:43:47.191379" elapsed="5.391490"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Google Tests">Google Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Search Test">Google Tests.Search Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-01-16T15:43:47.400861" level="ERROR">[ DataDriver ] Error in robot file:
+  File "/home/douglas/repo/automacao_de_testes/ferramentas/10_robot_framework/google_tests/search_test.robot", line 0</msg>
+<msg time="2025-01-16T15:43:47.411011" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: FileNotFoundError: File attribute was empty. Tried to find /home/douglas/repo/automacao_de_testes/ferramentas/10_robot_framework/google_tests/search_test.csv but file does not exist. If no file validation is required, set file_search_strategy=None.</msg>
+</errors>
+</robot>
