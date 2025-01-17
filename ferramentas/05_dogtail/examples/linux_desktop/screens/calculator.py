@@ -1,46 +1,30 @@
-import sys
-import re
-import io
-
 from guara.transaction import AbstractTransaction
 
-from dogtail.procedural import run, focus, click
+from dogtail.tree import root
 from dogtail.rawinput import pressKey, keyNameAliases
-from dogtail import tree
 
 
 class Add(AbstractTransaction):
     """
-    Submits the text
+    Summs two numbers
 
     Args:
-        text (str): The text to be submited
+        a (int): The 1st number to be added
+        b (int): The second number to be added
 
     Returns:
-        str: the label 'It works! {code}!'
+        the application (self._driver)
     """
 
     def __init__(self, driver):
         super().__init__(driver)
+        # It is not clear why the instantiation does not work in
+        # setup fixture. It was necessary to instantiate it here
+        self._driver = root.application("gnome-calculator")
 
     def do(self, a, b):
-        sys.stdout = buffer = io.StringIO()
-        app_name = "gnome-calculator"
-        click("1")
-        click("+")
-        click("2")
+        self._driver.child(str(a)).click()
+        self._driver.child("+").click()
+        self._driver.child(str(b)).click()
         pressKey(keyNameAliases.get("enter"))
-        app = tree.root.application(app_name)
-        # uso a função dump para pegar os valores printados no painel do aplicativo
-        app.dump()
-
-        what_was_dumped = (
-            buffer.getvalue()
-        )  # Return a str containing the entire contents of the buffer.
-
-        # achata a árvove numa linha única
-        what_was_dumped = re.sub(r"\n\s+", "", what_was_dumped)
-
-        # https://github.com/vhumpa/dogtail/issues/7
-        return "[label | 3][label | =][panel | ][label | 1+2]"
-        # return self._driver.child("3").showing
+        return self._driver
