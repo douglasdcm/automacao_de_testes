@@ -17,4 +17,7 @@ python -m pytest ./examples/test_pretty.py
 ```
 Procure o log e screeshots na pasta `/tmp/dogtail-*`
 
-Mais informações em https://wiki.ubuntu.com/Testing/Automation/DogtailTutorial
+Mais informações em
+- https://wiki.ubuntu.com/Testing/Automation/DogtailTutorial
+- https://fedoramagazine.org/automation-through-accessibility/
+- https://fedorapeople.org/~vhumpa/dogtail/epydoc/
