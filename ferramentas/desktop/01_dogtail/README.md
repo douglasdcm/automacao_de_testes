@@ -4,7 +4,8 @@ Verifique as dependências em https://github.com/vhumpa/dogtail?tab=readme-ov-fi
 
 # Execução no Linux
 ```
-virtualenv --system-site-packages env
+python -m venv venv
+sudo apt install libcairo2-dev libxt-dev libgirepository1.0-dev
 source env/bin/activate
 pip install -r ./dogtail/requirements.txt
 python ./examples/gedit-test-utf8-procedural-api.py
@@ -12,7 +13,7 @@ python ./examples/gedit-test-utf8-procedural-api.py
 O Gedit é aberto e um texto é copiado para dentro dele.<br>
 Outro exemplo agora usando um framework de testes:
 ```
-python -m pytest ./examples/test_demo.py
+python -m pytest ./examples/test_pretty.py
 ```
 Procure o log e screeshots na pasta `/tmp/dogtail-*`
 
