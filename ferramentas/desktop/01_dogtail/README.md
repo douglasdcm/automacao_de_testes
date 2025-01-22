@@ -10,6 +10,9 @@ source env/bin/activate
 pip install -r ./dogtail/requirements.txt
 python ./examples/gedit-test-utf8-procedural-api.py
 ```
+
+Se rodando com Python 3.11+ pode ser que tenha que fazer [isso](https://gitlab.com/dogtail/dogtail/-/issues/37#note_2304763633)
+
 O Gedit é aberto e um texto é copiado para dentro dele.<br>
 Outro exemplo agora usando um framework de testes:
 ```
