@@ -52,17 +52,3 @@ class TestVpmTransaction:
             home.DoExpandedSearch, text=text, wait_for=expanded_similarity
         ).asserts(it.IsEqualTo, expanded_similarity)
         self._app.at(home.NavigateTo).asserts(it.IsEqualTo, content_in_english)
-
-
-@pytest.fixture
-def setup_application():
-    configuration = {
-        "url": "https://vagaspramim.onrender.com/",
-        "window_width": 1094,
-        "window_hight": 765,
-        "implicitly_wait": 0.5,
-    }
-    app = Application(webdriver.Chrome())
-    app.at(setup.OpenApp, **configuration)
-    yield app
-    app.at(setup.CloseApp)
