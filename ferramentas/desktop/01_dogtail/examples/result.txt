@@ -1,0 +1,28 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-8.1.1, pluggy-1.4.0
+Test order randomisation NOT enabled. Enable with --random-order or --random-order-bucket=<bucket_type>
+rootdir: /home/douglas/repo/automacao_de_testes
+plugins: random-order-1.1.1
+collected 1 item
+
+ferramentas/dogtail/examples/test_demo.py .                              [100%]
+
+=============================== warnings summary ===============================
+../../../../usr/lib/python3/dist-packages/pyatspi/Accessibility.py:65
+  /usr/lib/python3/dist-packages/pyatspi/Accessibility.py:65: DeprecationWarning: Atspi.Accessible.get_hypertext_iface is deprecated
+    ret = func(obj)
+
+ferramentas/dogtail/examples/test_demo.py::test_1_plus_2_is_3
+  /usr/lib/python3/dist-packages/pyatspi/Accessibility.py:65: DeprecationWarning: Atspi.Accessible.get_component_iface is deprecated
+    ret = func(obj)
+
+ferramentas/dogtail/examples/test_demo.py::test_1_plus_2_is_3
+  /usr/lib/python3/dist-packages/pyatspi/Accessibility.py:65: DeprecationWarning: Atspi.Accessible.get_action_iface is deprecated
+    ret = func(obj)
+
+ferramentas/dogtail/examples/test_demo.py::test_1_plus_2_is_3
+  /usr/lib/python3/dist-packages/pyatspi/action.py:91: DeprecationWarning: Atspi.Action.get_action_name is deprecated
+    return Atspi.Action.get_action_name(self.obj, index)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 4 warnings in 9.78s =========================
