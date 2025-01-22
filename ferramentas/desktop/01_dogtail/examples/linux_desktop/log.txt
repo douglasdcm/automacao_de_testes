@@ -1,0 +1,14 @@
+examples/linux_desktop/test_page_transactions.py::TestLinuxCalculator::test_local_page 
+--------------------------------------------------------------- live log setup ---------------------------------------------------------------
+00:13:34 INFO Transaction 'setup.OpenApp'
+--------------------------------------------------------------- live log call ----------------------------------------------------------------
+00:13:35 INFO Transaction 'calculator.Add'
+00:13:35 INFO  a: 1
+00:13:35 INFO  b: 2
+
+00:13:39 INFO Assertion 'ItShows'
+00:13:39 INFO  actual:   '[application | gnome-calculator]'
+00:13:39 INFO  expected: '3'
+PASSED                                                                                                                                 [100%]
+------------------------------------------------------------- live log teardown --------------------------------------------------------------
+00:13:39 INFO Transaction 'setup.CloseApp'
