@@ -10,8 +10,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from hamcrest.core.base_matcher import BaseMatcher
 
-
-DRIVER = webdriver.Chrome()
+options = webdriver.ChromeOptions()
+options.add_argument("--headless")
+DRIVER = webdriver.Chrome(options=options)
 
 
 # hability
