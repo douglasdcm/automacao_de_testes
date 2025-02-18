@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>Sample page</title>
+</head>
+
+<body>
+    <h1>Basic page</h1>
+    <div>
+      <button name="generate" onclick="generate()">generate and wait, please</button>
+      <p id="my-value"></p>
+    </div>
+    <div>
+     <input id="input" value="garbage">
+     <button name="button" onclick="myFunction()">test</button>
+    </div>
+    <p id="result"></p>
+
+    <script>
+        function myFunction() {
+	    alert("Done!");
+            let txt = document.getElementById("input").value;
+            document.getElementById("result").innerHTML = "It workls! " + txt + "!";
+        };
+        function generate() {
+            document.getElementById("my-value").innerHTML = "";
+            let r = (Math.random() + 1).toString(36).substring(7);
+            let n = Math.floor(Math.random() * 5) * 1000;
+            setTimeout(() => {
+              document.getElementById("my-value").innerHTML = r;
+            }, n);
+            
+        };
+    </script>
+</body>
+
+</html>
