@@ -1,5 +1,5 @@
 # automacao_de_testes
-Este projeto tem alguns exemplos de scripts de testes automatizados. Todo o material foi desenvolvido em Linux. Caso esteja usando Windows será necessaŕio adaptações. Uma outra alternativa é a utilização do [Cygwin](https://cygwin.com/) para execução de comandos Linux, ou utilizar o [WSL](https://www.treinaweb.com.br/blog/o-que-e-windows-subsystem-for-linux-wsl).
+Este projeto tem alguns exemplos de scripts de testes automatizados. Todo o material foi desenvolvido em Linux Ubuntu e Python 3.11. Caso esteja usando Windows será necessaŕio adaptações. Uma outra alternativa é a utilização do [Cygwin](https://cygwin.com/) para execução de comandos Linux, ou utilizar o [WSL](https://www.treinaweb.com.br/blog/o-que-e-windows-subsystem-for-linux-wsl).
 
 # Executar linter
 ```
@@ -30,6 +30,8 @@ Caqui is intended to command executions against Drivers synchronously and asynch
 Postman is your single platform for collaborative API development.
 ## [Robot Framework](https://robotframework.org/)
 Robot Framework is an open source automation framework for test automation and robotic process automation (RPA).
+## [Playwright](https://playwright.dev/python/docs/intro)
+Playwright was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox.
 
 # Padrões de projeto
 ## [Page Objects Model](https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/)
