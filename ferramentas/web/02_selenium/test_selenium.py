@@ -11,7 +11,7 @@ from selenium.webdriver import ChromeOptions
 # ~/.cache/selenium/chromedriver/linux64/129.0.6668.100
 def test_demo():
     options = ChromeOptions()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     driver = webdriver.Chrome(options=options)
     driver.get("https://www.selenium.dev/selenium/web/web-form.html")
