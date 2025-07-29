@@ -1,3 +1,7 @@
+# Arquitetura do código
+
+![diagram](docs/arquitetura-codigo.png)
+
 # Setup
 ```bash
 python3.11 -m venv venv
