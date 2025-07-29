@@ -1,0 +1,4 @@
+selenium
+pytest
+guara
+black
