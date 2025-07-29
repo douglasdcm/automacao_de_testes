@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Test Automation Training Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .form-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-section h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea, button {
+            margin-bottom: 15px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .checkbox-group, .radio-group {
+            margin-bottom: 15px;
+        }
+        .hidden-element {
+            display: none;
+        }
+        .delayed-element {
+            transition: opacity 0.5s;
+        }
+        #ajax-content {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            min-height: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+            cursor: help;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selenium Test Automation Training Page</h1>
+    
+    <!-- Basic Form Elements Section -->
+    <div class="form-section">
+        <h2>Basic Form Elements</h2>
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="example@domain.com">
+        
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+        
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="">-- Select a country --</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="au">Australia</option>
+            <option value="in">India</option>
+        </select>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="18" max="99" value="25">
+        
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" name="birthdate">
+        
+        <button id="submit-btn" type="button">Submit Form</button>
+    </div>
+    
+    <!-- Checkboxes and Radio Buttons Section -->
+    <div class="form-section">
+        <h2>Checkboxes and Radio Buttons</h2>
+        
+        <div class="checkbox-group">
+            <label>Interests:</label>
+            <input type="checkbox" id="interest-tech" name="interest" value="technology" checked>
+            <label for="interest-tech" style="display: inline;">Technology</label>
+            
+            <input type="checkbox" id="interest-sports" name="interest" value="sports">
+            <label for="interest-sports" style="display: inline;">Sports</label>
+            
+            <input type="checkbox" id="interest-music" name="interest" value="music">
+            <label for="interest-music" style="display: inline;">Music</label>
+        </div>
+        
+        <div class="radio-group">
+            <label>Gender:</label>
+            <input type="radio" id="gender-male" name="gender" value="male" checked>
+            <label for="gender-male" style="display: inline;">Male</label>
+            
+            <input type="radio" id="gender-female" name="gender" value="female">
+            <label for="gender-female" style="display: inline;">Female</label>
+            
+            <input type="radio" id="gender-other" name="gender" value="other">
+            <label for="gender-other" style="display: inline;">Other</label>
+        </div>
+        
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" id="terms" name="terms">
+                I agree to the terms and conditions
+            </label>
+        </div>
+    </div>
+    
+    <!-- Buttons Section -->
+    <div class="form-section">
+        <h2>Buttons</h2>
+        
+        <button id="simple-btn" type="button">Simple Button</button>
+        <button id="alert-btn" type="button">Show Alert</button>
+        <button id="confirm-btn" type="button">Show Confirm</button>
+        <button id="prompt-btn" type="button">Show Prompt</button>
+        <button id="new-tab-btn" type="button">Open New Tab</button>
+        <button id="disabled-btn" type="button" disabled>Disabled Button</button>
+        
+        <div style="margin-top: 20px;">
+            <button class="btn-style" type="button" style="background-color: #2ecc71;">Success</button>
+            <button class="btn-style" type="button" style="background-color: #e74c3c;">Danger</button>
+            <button class="btn-style" type="button" style="background-color: #f39c12;">Warning</button>
+        </div>
+    </div>
+    
+    <!-- Dynamic Elements Section -->
+    <div class="form-section">
+        <h2>Dynamic Elements</h2>
+        
+        <button id="show-hidden-btn" type="button">Show Hidden Element</button>
+        <div id="hidden-element" class="hidden-element" style="padding: 20px; background-color: #f8f9fa; margin-top: 10px;">
+            This element was hidden and now is visible!
+        </div>
+        
+        <button id="add-element-btn" type="button">Add New Element</button>
+        <div id="element-container" style="margin-top: 10px;"></div>
+        
+        <button id="change-text-btn" type="button">Change Text</button>
+        <div id="changeable-text" style="padding: 10px; border: 1px solid #eee; margin-top: 10px;">
+            Original text content
+        </div>
+        
+        <button id="toggle-class-btn" type="button">Toggle Class</button>
+        <div id="class-toggle-element" style="padding: 20px; background-color: #f8f9fa; margin-top: 10px;">
+            This element will change color when class is toggled
+        </div>
+        
+        <button id="ajax-btn" type="button">Load Content via AJAX</button>
+        <div id="ajax-content">Content will appear here after AJAX call</div>
+    </div>
+    
+    <!-- Dropdowns and Multi-Select Section -->
+    <div class="form-section">
+        <h2>Dropdowns and Multi-Select</h2>
+        
+        <label for="simple-dropdown">Simple Dropdown:</label>
+        <select id="simple-dropdown">
+            <option value="">-- Select an option --</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        
+        <label for="multi-select">Multi-Select:</label>
+        <select id="multi-select" multiple size="4">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="yellow">Yellow</option>
+        </select>
+        
+        <label for="disabled-dropdown">Disabled Dropdown:</label>
+        <select id="disabled-dropdown" disabled>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+        </select>
+        
+        <label for="dynamic-dropdown">Dynamic Dropdown:</label>
+        <select id="dynamic-dropdown">
+            <!-- Options will be added via JavaScript -->
+        </select>
+        <button id="add-option-btn" type="button">Add Option</button>
+    </div>
+    
+    <!-- Tables Section -->
+    <div class="form-section">
+        <h2>HTML Tables</h2>
+        
+        <table id="users-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>jane@example.com</td>
+                    <td>Inactive</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Bob Johnson</td>
+                    <td>bob@example.com</td>
+                    <td>Active</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <button id="add-row-btn" type="button">Add Table Row</button>
+        <button id="remove-row-btn" type="button">Remove Last Row</button>
+    </div>
+    
+    <!-- Tooltips and Popovers Section -->
+    <div class="form-section">
+        <h2>Tooltips and Popovers</h2>
+        
+        <div class="tooltip">Hover over me
+            <span class="tooltiptext">This is a tooltip</span>
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <button id="show-popover-btn" type="button">Show Popover</button>
+            <div id="popover-content" style="display: none; padding: 10px; background: #fff; border: 1px solid #ccc; margin-top: 10px;">
+                This is a popover content that appears when the button is clicked.
+            </div>
+        </div>
+    </div>
+    
+    <!-- File Upload Section -->
+    <div class="form-section">
+        <h2>File Upload</h2>
+        
+        <label for="file-upload">Upload a file:</label>
+        <input type="file" id="file-upload" name="file-upload">
+        
+        <label for="multi-file-upload">Upload multiple files:</label>
+        <input type="file" id="multi-file-upload" name="multi-file-upload" multiple>
+    </div>
+    
+    <!-- IFrame Section -->
+    <div class="form-section">
+        <h2>IFrame</h2>
+        
+        <iframe id="sample-iframe" src="about:blank" width="100%" height="200" style="border: 1px solid #ddd;"></iframe>
+        <button id="load-iframe-btn" type="button">Load Content in IFrame</button>
+    </div>
+    
+    <!-- JavaScript for interactive elements -->
+    <script>
+        // Simple button click handler
+        document.getElementById('simple-btn').addEventListener('click', function() {
+            alert('Simple button was clicked!');
+        });
+        
+        // Alert button
+        document.getElementById('alert-btn').addEventListener('click', function() {
+            alert('This is a JavaScript alert!');
+        });
+        
+        // Confirm button
+        document.getElementById('confirm-btn').addEventListener('click', function() {
+            const result = confirm('Do you want to proceed?');
+            alert('You clicked: ' + (result ? 'OK' : 'Cancel'));
+        });
+        
+        // Prompt button
+        document.getElementById('prompt-btn').addEventListener('click', function() {
+            const name = prompt('Please enter your name:', 'John Doe');
+            if (name !== null) {
+                alert('Hello, ' + name + '!');
+            }
+        });
+        
+        // New tab button
+        document.getElementById('new-tab-btn').addEventListener('click', function() {
+            window.open('about:blank', '_blank');
+        });
+        
+        // Show hidden element
+        document.getElementById('show-hidden-btn').addEventListener('click', function() {
+            const hiddenElement = document.getElementById('hidden-element');
+            hiddenElement.classList.toggle('hidden-element');
+        });
+        
+        // Add new element
+        document.getElementById('add-element-btn').addEventListener('click', function() {
+            const container = document.getElementById('element-container');
+            const newElement = document.createElement('div');
+            newElement.textContent = 'New element added at ' + new Date().toLocaleTimeString();
+            newElement.style.padding = '10px';
+            newElement.style.margin = '5px 0';
+            newElement.style.backgroundColor = '#f0f0f0';
+            container.appendChild(newElement);
+        });
+        
+        // Change text
+        document.getElementById('change-text-btn').addEventListener('click', function() {
+            const element = document.getElementById('changeable-text');
+            element.textContent = 'Text changed at ' + new Date().toLocaleTimeString();
+        });
+        
+        // Toggle class
+        document.getElementById('toggle-class-btn').addEventListener('click', function() {
+            const element = document.getElementById('class-toggle-element');
+            element.classList.toggle('highlighted');
+            if (element.classList.contains('highlighted')) {
+                element.style.backgroundColor = '#e3f2fd';
+            } else {
+                element.style.backgroundColor = '#f8f9fa';
+            }
+        });
+        
+        // AJAX button
+        document.getElementById('ajax-btn').addEventListener('click', function() {
+            const ajaxContent = document.getElementById('ajax-content');
+            ajaxContent.textContent = 'Loading...';
+            
+            // Simulate AJAX call with setTimeout
+            setTimeout(function() {
+                ajaxContent.textContent = 'AJAX content loaded at ' + new Date().toLocaleTimeString();
+            }, 1500);
+        });
+        
+        // Add option to dynamic dropdown
+        let optionCounter = 1;
+        document.getElementById('add-option-btn').addEventListener('click', function() {
+            const dropdown = document.getElementById('dynamic-dropdown');
+            const newOption = document.createElement('option');
+            newOption.value = 'dynamic-' + optionCounter;
+            newOption.textContent = 'Dynamic Option ' + optionCounter;
+            dropdown.appendChild(newOption);
+            optionCounter++;
+        });
+        
+        // Add table row
+        document.getElementById('add-row-btn').addEventListener('click', function() {
+            const table = document.getElementById('users-table').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            const rowCount = table.rows.length;
+            
+            newRow.insertCell(0).textContent = rowCount;
+            newRow.insertCell(1).textContent = 'New User ' + rowCount;
+            newRow.insertCell(2).textContent = 'user' + rowCount + '@example.com';
+            newRow.insertCell(3).textContent = 'Pending';
+        });
+        
+        // Remove table row
+        document.getElementById('remove-row-btn').addEventListener('click', function() {
+            const table = document.getElementById('users-table').getElementsByTagName('tbody')[0];
+            if (table.rows.length > 0) {
+                table.deleteRow(table.rows.length - 1);
+            }
+        });
+        
+        // Show popover
+        document.getElementById('show-popover-btn').addEventListener('click', function() {
+            const popover = document.getElementById('popover-content');
+            popover.style.display = popover.style.display === 'none' ? 'block' : 'none';
+        });
+        
+        // Load content in iframe
+        document.getElementById('load-iframe-btn').addEventListener('click', function() {
+            const iframe = document.getElementById('sample-iframe');
+            iframe.srcdoc = `
+                <!DOCTYPE html>
+                <html>
+                <head><title>IFrame Content</title></head>
+                <body style="font-family: Arial, sans-serif; padding: 10px;">
+                    <h3>IFrame Content Loaded</h3>
+                    <p>This content was loaded dynamically into the iframe.</p>
+                    <p>Current time: ${new Date().toLocaleTimeString()}</p>
+                    <button onclick="alert('Button inside iframe clicked!')">Click Me</button>
+                </body>
+                </html>
+            `;
+        });
+        
+        // Form submit button
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            alert('Form would be submitted here');
+        });
+    </script>
+</body>
+</html>
