@@ -21,4 +21,4 @@ class TestTransactionsV1:
 
     @mark.skip(reason="This test is skipped for now")
     def test_aulas(self):
-        self._app.at(home.SubmitForm).asserts(it.IsEqualTo, None)
+        self._app.at(home.FillForm).asserts(it.IsEqualTo, None)
