@@ -42,6 +42,6 @@ class TestTransactionsV3:
             "age": 30,
             "birthdate": "1993-01-01",  # Adjusted date format for Playwright
         }
-        app.at(home.SubmitForm, **with_user_data).asserts(
+        app.at(home.FillForm, **with_user_data).asserts(
             it.IsEqualTo, "Form would be submitted here"
         )
