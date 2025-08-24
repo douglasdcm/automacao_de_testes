@@ -33,19 +33,19 @@ class TestTransactionsV3:
         self._app.at(setup.CloseApp)
 
     def test_aulas(self, app: Application):
-        # with_user_data = {
-        #     "username": "myname",
-        #     "password": "mypassword",
-        #     "email": "any@any.com",
-        #     "bio": "This is my bio",
-        #     "country": "United Kingdom",
-        #     "age": 30,
-        #     "birthdate": "1993-01-01",  # Adjusted date format for Playwright
-        # }
-        # self._app.at(home.FillForm, **with_user_data).asserts(
-        #     it.IsEqualTo, "Form would be submitted here"
-        # )
-        # self._app.at(home.CheckBoxes)
+        with_user_data = {
+            "username": "myname",
+            "password": "mypassword",
+            "email": "any@any.com",
+            "bio": "This is my bio",
+            "country": "United Kingdom",
+            "age": 30,
+            "birthdate": "1993-01-01",  # Adjusted date format for Playwright
+        }
+        self._app.at(home.FillForm, **with_user_data).asserts(
+            it.IsEqualTo, "Form would be submitted here"
+        )
+        self._app.at(home.CheckBoxes)
         self._app.at(home.PushButtons, prompt_text="This is a prompt")
         self._app.at(home.InteractWithDynamicElements).asserts(
             it.HasKeyValue, {"hidden_element": "This element was hidden and now is visible!"}
