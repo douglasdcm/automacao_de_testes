@@ -59,37 +59,23 @@ class CheckboxPage:
 
 
 class PushButtons:
-    def do(self):
-        self._driver.click("prompt-btn")
-        self._driver.alert_fill("Douglas")
-        return self._driver.alert_accept()
+    pass
 
 
 class InteractWtihDynamics:
-    def do(self):
-        self._driver.click("show-hidden-btn")
-        return self._driver.get_text("hidden-element")
+    pass
 
 
 class InteractWithDropdowns:
-    def do(self):
-        self._driver.select("country", "Option 3")
-        self._driver.select("multi-select", "Yellow")
-        self._driver.select("multi-select", "Green")
+    pass
 
 
 class InteractWithTables:
-    def do(self):
-        self._driver.click("add-row-btn")
-        return self._driver.get_text_css_selector(
-            "#users-table > tbody > tr:nth-child(4) > td:nth-child(1)"
-        )
+    pass
 
 
 class InteractWithTooltips:
-    def do(self):
-        self._driver.click_css_selector(".tooltip")
-        return self._driver.get_text_css_selector("body > div:nth-child(8) > div.tooltip > span")
+    pass
 
 
 def hard_wait_deleteme():
@@ -99,18 +85,8 @@ def hard_wait_deleteme():
 
 
 class InteractWithFiles:
-    def do(self):
-        self._driver.fill("file-upload", "/home/douglas/repo/automacao_de_testes/aulas/new/foo.txt")
-        self._driver.fill(
-            "multi-file-upload", "/home/douglas/repo/automacao_de_testes/aulas/new/foo.txt"
-        )
-        self._driver.fill(
-            "multi-file-upload", "/home/douglas/repo/automacao_de_testes/aulas/new/foo.txt"
-        )
+    pass
 
 
 class InteractWithIFrames:
-    def do(self):
-        self._driver.click("load-iframe-btn")
-        self._driver.switch_to_frame("sample-iframe")
-        return self._driver.get_text_css_selector("h3")
+    pass

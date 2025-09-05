@@ -1,6 +1,6 @@
 # Arquitetura do código
 
-![diagram](docs/arquitetura-codigo.png)
+![diagram](./docs/arquitetura-codigo.png)
 
 # Setup
 ```bash

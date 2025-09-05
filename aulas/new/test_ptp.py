@@ -36,13 +36,13 @@ def test_sample_web_page_ptp():
         with_birthdate="2025-08-28",
         with_email="foo@email.com",
     ).asserts(it.IsEqualTo, "Form would be submitted here")
-    # app.when(FillCheckbox)
-    # app.when(PushButtons).asserts(it.IsEqualTo, "Hello, Douglas!")
-    # app.when(InteractWtihDynamics).asserts(
-    #     it.IsEqualTo, "This element was hidden and now is visible!"
-    # )
-    # app.when(InteractWithDropdowns)
-    # app.when(InteractWithTables).asserts(it.IsEqualTo, "4")
-    # app.when(InteractWithTooltips).asserts(it.IsEqualTo, "This is a tooltip")
-    # app.when(InteractWithFiles)
-    # app.when(InteractWithIFrames).asserts(it.IsEqualTo, "IFrame Content Loaded")
+    app.when(FillCheckbox)
+    app.when(PushButtons).asserts(it.IsEqualTo, "Hello, Douglas!")
+    app.when(InteractWtihDynamics).asserts(
+        it.IsEqualTo, "This element was hidden and now is visible!"
+    )
+    app.when(InteractWithDropdowns)
+    app.when(InteractWithTables).asserts(it.IsEqualTo, "4")
+    app.when(InteractWithTooltips).asserts(it.IsEqualTo, "This is a tooltip")
+    app.when(InteractWithFiles)
+    app.when(InteractWithIFrames).asserts(it.IsEqualTo, "IFrame Content Loaded")

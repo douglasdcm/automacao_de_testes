@@ -49,6 +49,8 @@ class PushButtons(AbstractTransaction):
 class InteractWtihDynamics(AbstractTransaction):
     def do(self):
         self._driver.click("show-hidden-btn")
+        self._driver.click("ajax-btn")
+        self._driver.wait_for_text("ajax-content", "AJAX content loaded at")
         return self._driver.get_text("hidden-element")
 
 

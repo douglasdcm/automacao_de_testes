@@ -52,6 +52,9 @@ class Wrapper:
     def switch_to_frame(self, locator):
         raise NotImplementedError()
 
+    def wait_for_text(self, locator, text):
+        raise NotImplementedError()
+
 
 class WrapperSelenium(Wrapper):
     def __init__(self):
@@ -66,8 +69,14 @@ class WrapperSelenium(Wrapper):
     def click(self, locator):
         self._driver.find_element(By.ID, locator).click()
 
+    def click_by_css_selector(self, locator):
+        self._driver.find_element(By.CSS_SELECTOR, locator).click()
+
     def fill(self, locator, value):
         self._driver.find_element(By.ID, locator).send_keys(value)
+
+    def fill_by_css_selector(self, locator, value):
+        self._driver.find_element(By.CSS_SELECTOR, locator).send_keys(value)
 
     def select(self, locator, value):
         dropdown = self._driver.find_element(By.ID, locator)
@@ -95,6 +104,13 @@ class WrapperSelenium(Wrapper):
 
     def switch_to_frame(self, locator):
         self._driver.switch_to.frame(self._driver.find_element(By.ID, locator))
+
+    def wait_for_text(self, locator, text):
+        wait = WebDriverWait(self._driver, 10)
+        wait.until(expected_conditions.text_to_be_present_in_element((By.ID, locator), text))
+
+    def finish(self):
+        self._driver.quit()
 
 
 class WrapperPlaywright(Wrapper):
