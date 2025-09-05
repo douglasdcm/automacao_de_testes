@@ -10,6 +10,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium import webdriver
 
 
 class Wrapper:
@@ -58,7 +59,9 @@ class Wrapper:
 
 class WrapperSelenium(Wrapper):
     def __init__(self):
-        self._driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")
+        self._driver = webdriver.Chrome(options=options)
 
     def set_window_size(self, width, height):
         return self._driver.set_window_size(width, height)
