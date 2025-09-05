@@ -42,7 +42,7 @@ Arrange is where we prepare everything for our test. Act is the singular, state-
 Gherkin uses a set of special keywords to give structure and meaning to executable specifications. Each keyword is translated to many spoken languages.
 ## Object Repository
 Este padrão não tem intenção de ser usado no mercado, mas mostra que novos padrões podem ser explorados além dos mais conhecidos da literatura.
-## [Page Transactions](https://github.com/douglasdcm/guara)
+## [Page Transactions](https://guara.readthedocs.io/en/latest/index.html)
 The intent of this pattern is to simplify UI test automation. It was inspired by Page Objects, App Actions, and Screenplay. Page Transactions focus on the operations (transactions) a user can perform on a web page, such as Login, Logout, or Submit Forms.
 ## [Screenplay](https://serenity-js.org/handbook/design/screenplay-pattern/)
 The Screenplay Pattern is an innovative, user-centred approach to writing high-quality automated acceptance tests. It steers your team towards effectively using layers of abstraction, helps your test scenarios capture the business vocabulary of your domain, and encourages good testing and software engineering habits.
