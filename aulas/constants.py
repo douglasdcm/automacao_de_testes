@@ -1,1 +1,1 @@
-URL = "file:///home/douglas/repo/automacao_de_testes/aulas/docs/index.html"
+URL = "https://douglasdcm.github.io/aulas/"
