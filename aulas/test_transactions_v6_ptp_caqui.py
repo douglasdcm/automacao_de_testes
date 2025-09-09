@@ -17,6 +17,7 @@ SERVER_PORT = 9999
 SERVER_URL = f"http://localhost:{SERVER_PORT}"
 CURRENT_DIR = os.getcwd()
 
+
 class TestTransactionsV6:
     def setup_method(self, method):
         self._server = Server.get_instance(port=SERVER_PORT)
