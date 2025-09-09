@@ -6,22 +6,27 @@ from caqui.easy.options import ChromeOptionsBuilder
 from caqui.easy.capabilities import ChromeCapabilitiesBuilder, TimeoutsBuilder
 from datetime import datetime, timedelta
 
+
 class TimeoutError(Exception):
     pass
+
 
 class CaquiWrapper(BaseWrapper):
     def __init__(self, server_url):
         options = ChromeOptionsBuilder().to_dict()
         timeout = TimeoutsBuilder().implicit(30).to_dict()
         capabilities = (
-            ChromeCapabilitiesBuilder().accept_insecure_certs(True).timeouts(timeout).add_options(options)
+            ChromeCapabilitiesBuilder()
+            .accept_insecure_certs(True)
+            .timeouts(timeout)
+            .add_options(options)
         ).to_dict()
         session = synchronous.get_session(server_url, capabilities)
         self._connection = (server_url, session)
         self._current_tab = None
         self._TIMEOUT = 30
         self._SLEEP = 0.5
-        
+
     def goto(self, url):
         synchronous.go_to_page(*(self._connection), url)
 
@@ -62,8 +67,6 @@ class CaquiWrapper(BaseWrapper):
             sleep(self._SLEEP)
         raise TimeoutError()
 
-
-
     def wait_for_element_presence(self, locator):
         current_datetime = datetime.now()
         time_to_add = timedelta(seconds=self._TIMEOUT)
@@ -100,7 +103,10 @@ class CaquiWrapper(BaseWrapper):
 
     def get_number_of_rows(self, locator):
         table = synchronous.find_element(*(self._connection), By.ID, locator)
-        return len(synchronous.find_children_elements(*(self._connection), table, By.TAG_NAME, "tr")) - 1  # Exclude header row
+        return (
+            len(synchronous.find_children_elements(*(self._connection), table, By.TAG_NAME, "tr"))
+            - 1
+        )  # Exclude header row
 
     def get_dialog_text(self):
         return synchronous.get_alert_text(*(self._connection))
@@ -134,13 +140,15 @@ class CaquiWrapper(BaseWrapper):
     def send_text(self, locator, text, clear=True):
         element = synchronous.find_element(*(self._connection), By.ID, locator)
         if clear:
-            synchronous.clear_element(*(self._connection),element)
+            synchronous.clear_element(*(self._connection), element)
         synchronous.send_keys(*(self._connection), element, str(text))
 
     def select(self, locator, value):
         parent_element = synchronous.find_element(*(self._connection), By.ID, locator)
         synchronous.click(*(self._connection), parent_element)
-        element = synchronous.find_child_element(*(self._connection), parent_element, By.XPATH, f"//option[. = '{value}']")
+        element = synchronous.find_child_element(
+            *(self._connection), parent_element, By.XPATH, f"//option[. = '{value}']"
+        )
         synchronous.click(*(self._connection), element)
 
     def switch_to_frame(self, locator):

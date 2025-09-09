@@ -6,13 +6,44 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.action_chains import ActionChains
 
+from selenium.common.exceptions import ElementClickInterceptedException
+
 
 class SeleniumWrapper(BaseWrapper):
     def __init__(self):
         options = Options()
-        options.add_argument("--headless")
+        # options.add_argument("--headless")
         self._driver = Chrome(options=options)
         self._current_tab = None
+
+    def get_raw_driver(self):
+        """Returns the Selenium Webdriver in case you need it for specific code"""
+        return self._driver
+
+    def execute(self, driver_command, params):
+        self._driver.execute(driver_command, params)
+
+    def does_element_exist(self, locator):
+        return len(self._driver.find_elements(By.ID, locator)) > 0
+
+    def is_element_visible(self, locator):
+        return self._driver.find_element(By.ID, locator).is_displayed()
+
+    def is_element_overlapped(self, locator):
+        result = False
+        if self.does_element_exist(locator):
+            try:
+                self.click(locator)
+            except ElementClickInterceptedException:
+                result = True
+        return result
+
+    def get_children_of_by_xpath(self, parent, children_locator):
+        if isinstance(parent, str):
+            element = self._driver.find_element(By.XPATH, parent)
+        else:
+            element = parent
+        return element.find_elements(By.XPATH, children_locator)
 
     def hover_over_by_class_name(self, locator):
         element = self._driver.find_element(By.CLASS_NAME, locator)
@@ -30,9 +61,55 @@ class SeleniumWrapper(BaseWrapper):
         element = self._driver.find_element(By.ID, locator)
         element.click()
 
-    def wait_for_text(self, locator, text):
+    # If you are bothered about the number of variations of the 'click' method, you
+    # still can use other strategies, like receiving the 'locator type' and the 'locator value'
+    # or try all locators until you find one that works (it is necessary to handle the exceptions)
+    # Be creative!
+    def click_by_xpath(self, locator):
+        element = self._driver.find_element(By.XPATH, locator)
+        element.click()
+
+    def click_by_css(self, locator):
+        element = self._driver.find_element(By.CSS_SELECTOR, locator)
+        element.click()
+
+    def click_action(self, locator):
+        """Performs the click using the ActionChains class"""
+        clickable = self._driver.find_element(By.ID, locator)
+        self._click_action(clickable)
+
+    def click_action_by_css(self, locator):
+        """Performs the click using the ActionChains class"""
+        clickable = self._driver.find_element(By.CSS_SELECTOR, locator)
+        self._click_action(clickable)
+
+    def _click_action(self, clickable):
+        (
+            ActionChains(self._driver)
+            .move_to_element(clickable)
+            .pause(0.5)
+            .click_and_hold()
+            .pause(0.5)
+            .perform()
+        )
+
+    def wait_element_be_clicable(self, locator):
         wait = WebDriverWait(self._driver, 10)
+        wait.until(expected_conditions.element_to_be_clickable((By.ID, locator)))
+
+    def wait_element_be_clicable_by_xpath(self, locator):
+        wait = WebDriverWait(self._driver, 10)
+        wait.until(expected_conditions.element_to_be_clickable((By.XPATH, locator)))
+
+    def wait_for_text(self, locator, text, timeout=10):
+        wait = WebDriverWait(self._driver, timeout)
         wait.until(expected_conditions.text_to_be_present_in_element((By.ID, locator), text))
+
+    def wait_for_text_by_css(self, locator, text, timeout=10):
+        wait = WebDriverWait(self._driver, timeout)
+        wait.until(
+            expected_conditions.text_to_be_present_in_element((By.CSS_SELECTOR, locator), text)
+        )
 
     def get_number_of_rows(self, locator):
         table = self._driver.find_element(By.ID, locator)
@@ -43,6 +120,33 @@ class SeleniumWrapper(BaseWrapper):
         if clear:
             element.clear()
         element.send_keys(text)
+
+    def send_text_by_css(self, locator, text, clear=True):
+        element = self._driver.find_element(By.CSS_SELECTOR, locator)
+        if clear:
+            element.clear()
+        element.send_keys(text)
+
+    def send_text_by_name(self, locator, text, clear=True):
+        element = self._driver.find_element(By.NAME, locator)
+        if clear:
+            element.clear()
+        element.send_keys(text)
+
+    def send_text_action(self, locator, text, clear=True):
+        """Sends a text using the ActionChains class"""
+        element = self._driver.find_element(By.ID, locator)
+        if clear:
+            element.clear()
+        (
+            ActionChains(self._driver)
+            .move_to_element(element)
+            .pause(0.5)
+            .click_and_hold()
+            .pause(0.5)
+            .send_keys(text)
+            .perform()
+        )
 
     def select(self, locator, option):
         dropdown = self._driver.find_element(By.ID, locator)
