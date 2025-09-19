@@ -4,3 +4,4 @@ guara
 black
 playwright
 caqui
+pytest-playwright

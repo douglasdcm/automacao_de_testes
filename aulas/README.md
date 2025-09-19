@@ -7,6 +7,8 @@
 python3.11 -m venv venv
 source venv/bin/activate
 pip install -r docs/requirements.txt
+# if using playwright run
+playwright install
 ```
 
 # To run the tests
