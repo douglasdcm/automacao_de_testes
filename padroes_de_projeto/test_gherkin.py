@@ -1,1 +1,1 @@
-# Vá para ferramentas/06_behave_gherkin
+# Vá para ferramentas/outros/06_behave_gherkin

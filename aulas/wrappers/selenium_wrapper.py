@@ -1,3 +1,4 @@
+from time import sleep
 from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -5,8 +6,8 @@ from wrappers.base_wrapper import BaseWrapper
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.action_chains import ActionChains
-
 from selenium.common.exceptions import ElementClickInterceptedException
+from datetime import datetime, timedelta
 
 
 class SeleniumWrapper(BaseWrapper):
@@ -78,6 +79,19 @@ class SeleniumWrapper(BaseWrapper):
         clickable = self._driver.find_element(By.ID, locator)
         self._click_action(clickable)
 
+    def click_action_xpath(self, locator):
+        """Performs the click using the ActionChains class"""
+        clickable = self._driver.find_element(By.XPATH, locator)
+        self._click_action(clickable)
+
+    def click_by_text(self, object_type, text):
+        """Performs the click"""
+        try:
+            element = self._driver.find_element(By.XPATH, f"//{object_type}[text() = '{text}']")
+        except Exception:
+            element = self._driver.find_element(By.XPATH, f'//{object_type}[text() = "{text}"]')
+        element.click()
+
     def click_action_by_css(self, locator):
         """Performs the click using the ActionChains class"""
         clickable = self._driver.find_element(By.CSS_SELECTOR, locator)
@@ -92,6 +106,17 @@ class SeleniumWrapper(BaseWrapper):
             .pause(0.5)
             .perform()
         )
+
+    def wait_for_text_custom(self, locator, text, timeout=10):
+        current_datetime = datetime.now()
+        time_to_add = timedelta(seconds=timeout)
+        new_datetime = current_datetime + time_to_add
+        while datetime.now() < new_datetime:
+            element_text = self._driver.find_element(By.ID, locator).text
+            if text in element_text:
+                return
+            sleep(0.1)
+        raise TimeoutError()
 
     def wait_element_be_clicable(self, locator):
         wait = WebDriverWait(self._driver, 10)
@@ -110,6 +135,10 @@ class SeleniumWrapper(BaseWrapper):
         wait.until(
             expected_conditions.text_to_be_present_in_element((By.CSS_SELECTOR, locator), text)
         )
+
+    def wait_for_text_by_xpath(self, locator, text, timeout=10):
+        wait = WebDriverWait(self._driver, timeout)
+        wait.until(expected_conditions.text_to_be_present_in_element((By.XPATH, locator), text))
 
     def get_number_of_rows(self, locator):
         table = self._driver.find_element(By.ID, locator)
@@ -161,11 +190,20 @@ class SeleniumWrapper(BaseWrapper):
             text = self._driver.find_element(By.ID, locator).get_attribute("value")
         return text
 
+    def get_text_by_xpath(self, locator):
+        text = self._driver.find_element(By.XPATH, locator).text
+        if not text:
+            text = self._driver.find_element(By.XPATH, locator).get_attribute("value")
+        return text
+
     def get_text_by_class_name(self, locator):
         return self._driver.find_element(By.CLASS_NAME, locator).text
 
     def get_text_by_css(self, locator):
         return self._driver.find_element(By.CSS_SELECTOR, locator).text
+
+    def maximaize_window(self):
+        self._driver.maximize_window()
 
     def goto(self, url):
         self._driver.get(url)
@@ -194,6 +232,10 @@ class SeleniumWrapper(BaseWrapper):
     def accept_alert(self):
         alert = self._driver.switch_to.alert
         alert.accept()
+
+    def get_text_from_alert(self):
+        alert = self._driver.switch_to.alert
+        return alert.text
 
     def send_text_to_alert(self, text):
         alert = self._driver.switch_to.alert
