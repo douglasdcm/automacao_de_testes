@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ```
 - Execute o teste de exemplo. Garanta que o Chrome esteja inslado na sua máquina.
 ```
-python -m pytest -k test_selenium.py
+python -m pytest
 ```
 - Esta página será exibida no browser e os comandos do script serão executados nela
 
