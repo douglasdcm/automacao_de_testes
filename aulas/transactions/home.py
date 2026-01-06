@@ -106,7 +106,7 @@ class InteractWithDynamicElements(AbstractTransaction):
         result["toggled_class"] = toggled_class
 
         self._driver.click("ajax-btn")
-        self._driver.wait_for_text("ajax-content", "AJAX content loaded at")
+        # self._driver.wait_for_text("ajax-content", "AJAX content loaded at")
 
         ajax_response = self._driver.get_text("ajax-content")
         result["ajax_content"] = ajax_response

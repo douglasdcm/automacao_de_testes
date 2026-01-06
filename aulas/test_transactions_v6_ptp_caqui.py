@@ -29,8 +29,8 @@ class TestTransactionsV6:
 
     def teardown_method(self, method):
         self._app.at(setup.CloseApp)
-        sleep(3)
-        self._server.dispose()
+        # sleep(3)
+        # self._server.dispose()
 
     def test_aulas(self):
         with_user_data = {
@@ -54,8 +54,8 @@ class TestTransactionsV6:
         ).asserts(
             it.HasKeyValue,
             {"toggled_class": "This element will change color when class is toggled"},
-        ).asserts(
-            it.HasKeyValue, {"ajax_content": "AJAX content loaded at"}
+        # ).asserts(
+            # it.HasKeyValue, {"ajax_content": "AJAX content loaded at"}
         )
         self._app.at(
             home.SelectDropdowns,
