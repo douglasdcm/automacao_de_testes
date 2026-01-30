@@ -7,6 +7,7 @@ def test_sample_page():
     file_path = pathlib.Path(__file__).parent.resolve()
     options = webdriver.ChromeOptions()
     options.add_argument("--headless=new")
+    options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(0.5)
     driver.get(f"file:///{file_path}/sample.html")
