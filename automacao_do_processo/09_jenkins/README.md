@@ -3,6 +3,10 @@
 ```
 docker build -t myjenkins-blueocean:2.452.2-1 .
 ```
+- Crie a rede do jenkins
+```
+docker network create jenkins
+```
 - Execute o container
 ```
 docker run \

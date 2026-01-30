@@ -5,7 +5,9 @@ from selenium.webdriver.common.by import By
 
 def test_sample_page():
     file_path = pathlib.Path(__file__).parent.resolve()
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless=new")
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(0.5)
     driver.get(f"file:///{file_path}/sample.html")
     title = driver.title
