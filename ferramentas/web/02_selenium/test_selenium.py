@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 def test_sample_page():
     file_path = pathlib.Path(__file__).parent.resolve()
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless=new")
+    # options.add_argument("--headless=new")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
     driver = webdriver.Chrome(options=options)
