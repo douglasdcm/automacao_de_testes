@@ -4,7 +4,8 @@ from os import getcwd
 
 def test_pyauto_gui():
 
-    BASE_PATH = getcwd() + "/images/"
+    # BASE_PATH = getcwd() + "/images/"
+    BASE_PATH = getcwd() + "/images_ubuntu_2404lts/"
     BUTTON_1 = f"{BASE_PATH}button_1.png"
     BUTTON_2 = f"{BASE_PATH}button_2.png"
     BUTTON_SUM = f"{BASE_PATH}button_sum.png"
