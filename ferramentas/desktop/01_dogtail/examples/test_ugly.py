@@ -10,7 +10,6 @@ from dogtail.rawinput import pressKey, keyNameAliases
 from dogtail import tree
 from dogtail.utils import screenshot
 
-
 TestString = dogtail.tc.TCString()
 
 

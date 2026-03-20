@@ -1,6 +1,8 @@
 import asyncio
 from playwright.async_api import async_playwright
 from pytest import mark
+
+
 @mark.asyncio
 async def test_full_page_flow():
     async with async_playwright() as pw:
@@ -52,7 +54,9 @@ async def test_full_page_flow():
         await page.click("button:has-text('Warning')")
         # Dynamic elements
         await page.click("button:has-text('Show Hidden Element')")
-        await page.wait_for_selector("div:has-text('This element was hidden and now is visible!')", timeout=5000)
+        await page.wait_for_selector(
+            "div:has-text('This element was hidden and now is visible!')", timeout=5000
+        )
         await page.click("button:has-text('Add New Element')")
         await page.wait_for_selector("div.new-element", timeout=5000)
         await page.click("button:has-text('Change Text')")
@@ -60,11 +64,16 @@ async def test_full_page_flow():
         await page.click("button:has-text('Toggle Class')")
         # you could verify CSS class changed
         await page.click("button:has-text('Load Content via AJAX')")
-        await page.wait_for_selector("div:has-text('Content will appear here after AJAX call') ~ div.ajax-content", timeout=10000)
+        await page.wait_for_selector(
+            "div:has-text('Content will appear here after AJAX call') ~ div.ajax-content",
+            timeout=10000,
+        )
         # Dropdowns & Multi-Select
         await page.select_option("select[name='simple-dropdown']", label="Option 2")
         await page.select_option("select[name='multi-select']", label=["Red", "Blue"])
-        await page.select_option("select[name='disabled-dropdown']", label="Option 1").catch(lambda e: None)
+        await page.select_option("select[name='disabled-dropdown']", label="Option 1").catch(
+            lambda e: None
+        )
         await page.click("button:has-text('Dynamic Dropdown')")  # assume this adds option
         await page.select_option("select[name='dynamic-dropdown']", label="New Option")
         # HTML Tables
@@ -97,6 +106,7 @@ async def test_full_page_flow():
         # maybe interact inside iframe
         # Clean up / close
         await browser.close()
+
 
 # For running
 if __name__ == "__main__":

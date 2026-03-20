@@ -50,9 +50,7 @@ class HomePageCaqui:
         )
 
     def fill_input(self, text):
-        text_box = synchronous.find_element(
-            self._page, self._session, by.By.ID, "my-text-id"
-        )
+        text_box = synchronous.find_element(self._page, self._session, by.By.ID, "my-text-id")
         synchronous.send_keys(self._page, self._session, text_box, text)
 
     def submit_form(self):
@@ -62,7 +60,5 @@ class HomePageCaqui:
         synchronous.click(self._page, self._session, submit_button)
 
     def get_submission_message(self):
-        message = synchronous.find_element(
-            self._page, self._session, by.By.ID, "message"
-        )
+        message = synchronous.find_element(self._page, self._session, by.By.ID, "message")
         return synchronous.get_text(self._page, self._session, message)

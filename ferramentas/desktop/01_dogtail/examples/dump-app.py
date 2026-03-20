@@ -2,7 +2,6 @@ import dogtail.tc
 from dogtail.procedural import run, click
 from dogtail import tree
 
-
 # Load our persistent Dogtail objects
 TestString = dogtail.tc.TCString()
 
