@@ -54,15 +54,6 @@ def test_load_delay(with_driver: SeleniumWrapper):
     hard_sleep()
 
 
-def test_load_delay(with_driver: SeleniumWrapper):
-    URL = "http://uitestingplayground.com/loaddelay"
-    with_driver.goto(URL)
-    XPATH = "//button[contains(@class,'btn-primary')]"
-    with_driver.wait_element_be_clicable_by_xpath(XPATH)
-    with_driver.click_by_xpath(XPATH)
-    hard_sleep()
-
-
 def test_ajax(with_driver: SeleniumWrapper):
     URL = "http://uitestingplayground.com/ajax"
     with_driver.goto(URL)

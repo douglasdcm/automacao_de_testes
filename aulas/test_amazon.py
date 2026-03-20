@@ -76,7 +76,7 @@ class InspectCart:
         CART = "nav-cart-count-container"
         self._driver.click(CART)
         MY_PRODUCT = "//h4"
-        actual_product = amazon.get_text_by_xpath(MY_PRODUCT)
+        amazon.get_text_by_xpath(MY_PRODUCT)
         # assert actual_product in expected_product
 
 

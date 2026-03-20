@@ -10,8 +10,6 @@ from guara.transaction import Application
 from guara import it
 from wrappers.caqui_wrapper import CaquiWrapper
 from caqui.easy.server import Server
-from time import sleep
-from constants import URL
 
 SERVER_PORT = 9999
 SERVER_URL = f"http://localhost:{SERVER_PORT}"
