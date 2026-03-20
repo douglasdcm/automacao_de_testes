@@ -64,9 +64,7 @@ def _assert(
     expected,
 ):
     if actual != expected:
-        print(
-            f"FAILED '{function.__name__}'. Expected '{expected}', returned '{actual}'"
-        )
+        print(f"FAILED '{function.__name__}'. Expected '{expected}', returned '{actual}'")
     else:
         print(f"PASSED '{function.__name__}'")
 

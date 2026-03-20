@@ -54,7 +54,7 @@ class TestTransactionsV6:
         ).asserts(
             it.HasKeyValue,
             {"toggled_class": "This element will change color when class is toggled"},
-        # ).asserts(
+            # ).asserts(
             # it.HasKeyValue, {"ajax_content": "AJAX content loaded at"}
         )
         self._app.at(

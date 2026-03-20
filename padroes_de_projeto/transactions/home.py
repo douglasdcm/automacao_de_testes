@@ -8,7 +8,6 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 from guara.transaction import AbstractTransaction
 
-
 TEXT_AREA = ".col-md-10"
 TEXT_AREA_LABEL = "label:nth-child(1)"
 

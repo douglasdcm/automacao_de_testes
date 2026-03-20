@@ -14,9 +14,7 @@ def test_convert_selenium_to_caqui_1():
         .browser_name("chrome")
         .accept_insecure_certs(True)
         .timeouts(TimeoutsBuilder().implicit(1).build())
-        .additional_capability(
-            {"goog:chromeOptions": {"extensions": [], "args": ["--headless"]}}
-        )
+        .additional_capability({"goog:chromeOptions": {"extensions": [], "args": ["--headless"]}})
     ).build()
     session = synchronous.get_session(driver_url, capabilities)
 
@@ -38,9 +36,7 @@ def test_convert_selenium_to_caqui_1():
     text_box = synchronous.find_element(driver_url, session, by.By.NAME, "my-text")
 
     # submit_button = driver.find_element(by=By.CSS_SELECTOR, value="button")
-    submit_button = synchronous.find_element(
-        driver_url, session, by.By.CSS_SELECTOR, "button"
-    )
+    submit_button = synchronous.find_element(driver_url, session, by.By.CSS_SELECTOR, "button")
 
     # text_box.send_keys("Selenium")
     synchronous.send_keys(driver_url, session, text_box, "Selenium")
