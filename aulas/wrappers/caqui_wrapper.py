@@ -1,10 +1,8 @@
-from time import sleep
 from wrappers.base_wrapper import BaseWrapper
 from caqui.by import By
 from caqui import synchronous
 from caqui.easy.options import ChromeOptionsBuilder
 from caqui.easy.capabilities import ChromeCapabilitiesBuilder, TimeoutsBuilder
-from datetime import datetime, timedelta
 
 
 class TimeoutError(Exception):
@@ -103,10 +101,8 @@ class CaquiWrapper(BaseWrapper):
 
     def get_number_of_rows(self, locator):
         table = synchronous.find_element(*(self._connection), By.ID, locator)
-        return (
-            len(synchronous.find_children_elements(*(self._connection), table, By.TAG_NAME, "tr"))
-            - 1
-        )  # Exclude header row
+        element = synchronous.find_children_elements(*(self._connection), table, By.TAG_NAME, "tr")
+        return len(element) - 1  # Exclude header row
 
     def get_dialog_text(self):
         return synchronous.get_alert_text(*(self._connection))

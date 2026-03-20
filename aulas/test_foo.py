@@ -1,7 +1,5 @@
 import pytest
 from wrappers.selenium_wrapper import SeleniumWrapper
-from wrappers.playwright_wrapper import PlaywrightWrapper
-from playwright.sync_api import Page
 
 
 def hard_wait_deleteme(time):

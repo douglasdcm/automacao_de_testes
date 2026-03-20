@@ -4,7 +4,6 @@
 # Visit: https://github.com/douglasdcm/guara
 
 from guara.transaction import AbstractTransaction
-from pages.form import Form
 from wrappers.base_wrapper import BaseWrapper
 
 

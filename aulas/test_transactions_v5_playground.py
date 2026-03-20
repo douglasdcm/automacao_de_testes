@@ -11,12 +11,10 @@ class TestTransactionsV5:
         self._driver.quit()
 
     def test_button(self):
+        expected = "Locators and Selenium Interactions"
         self._driver.goto(f"{BASE_URL}Button.html")
         self._driver.click("home")
-        assert (
-            self._driver.get_text_by_class_name("wp-heading")
-            == "Locators and Selenium Interactions"
-        )
+        assert self._driver.get_text_by_class_name("wp-heading") == expected
 
     def test_text_input(self):
         self._driver.goto(f"{BASE_URL}Edit.html")
