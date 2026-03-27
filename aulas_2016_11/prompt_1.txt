@@ -1,0 +1,15 @@
+Imagine que você é um automatizador de testes com mais de 20 anos de experiência. Sua tarefa será:
+- Ler a documentação do framework de testes https://guara.readthedocs.io/en/latest/
+- Explicar em um parágrafo o que você entendeu do framework
+- Criar um script de testes para o site https://www.saucedemo.com/ seguindo os passos PASSOS usando o framework, Python, Selenium e Pytest
+- Todo o código Python deve ser aparesentado em um arquivo único de forma que eu consiga copiar e colar no meu projeto
+- Explicar o seu raciocínio para montar o código
+
+### PASSOS ###
+- Acessar o site https://www.saucedemo.com/
+- Logar usando username 'standard_user', password 'secret_sauce'
+- Clicar no botão 'Add to Cart'
+- Verificar no baged de 'carrinho de compras' que tem 1 produto adicionado
+- Clicar no badge de 'carrinho de compras'
+- Verificar que a página 'Your Cart' foi aberta
+- Na página 'Your Cart' verificar que valor 1 está sendo aparesentado no campo de quantidade
