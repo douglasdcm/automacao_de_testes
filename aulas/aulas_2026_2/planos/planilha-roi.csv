@@ -1,0 +1,64 @@
+Funcionalidade,Cenario,Tipo,Custo_Hora_QA_Manual_USD,Tempo_Execucao_Manual_Min,Custo_Setup_Automacao_USD,Tempo_Execucao_Automatizada_Min
+Login de usuario,Login com sucesso,Existente,35,4,120,0.5
+Login de usuario,Login com credenciais invalidas,Existente,35,3,90,0.4
+Login de usuario,Usuario bloqueado,Existente,35,3,90,0.4
+Processo de compra,Compra de produto com sucesso,Existente,35,8,250,1.2
+Carrinho de compras,Adicionar item ao carrinho,Existente,35,3,80,0.3
+Carrinho de compras,Remover item do carrinho,Existente,35,4,100,0.4
+Ordenacao de produtos,Ordenar produtos por preco crescente,Existente,35,5,110,0.5
+Ordenacao de produtos,Ordenar produtos por nome,Existente,35,5,110,0.5
+Continuacao de compras,Continuar comprando apos adicionar item,Existente,35,4,100,0.4
+Validacao do checkout,Checkout sem preencher dados,Existente,35,4,100,0.4
+Validacao do checkout,Checkout parcial,Existente,35,5,120,0.5
+Logout,Logout com sucesso,Existente,35,3,70,0.3
+Resetar estado da aplicacao,Resetar carrinho,Existente,35,4,100,0.4
+Carrinho vazio,Acessar carrinho sem itens,Existente,35,3,70,0.3
+Filtro de busca,Busca por termo exato,Ficticia_Mes_1,35,4,100,0.4
+Filtro de busca,Busca por termo inexistente,Ficticia_Mes_1,35,3,80,0.3
+Filtro de busca,Busca com caracteres especiais,Ficticia_Mes_1,35,4,90,0.4
+Detalhes do produto,Validar fotos e zoom do produto,Ficticia_Mes_1,35,5,140,0.6
+Detalhes do produto,Validar link de retorno para listagem,Ficticia_Mes_1,35,3,70,0.3
+Cupom de desconto,Aplicar cupom valido com sucesso,Ficticia_Mes_2,37,6,180,0.8
+Cupom de desconto,Aplicar cupom expirado,Ficticia_Mes_2,37,4,100,0.4
+Cupom de desconto,Aplicar cupom invalido,Ficticia_Mes_2,37,4,100,0.4
+Calculo de frete,Calcular frete para regiao sudeste,Ficticia_Mes_2,37,5,150,0.6
+Calculo de frete,Calcular frete com CEP invalido,Ficticia_Mes_2,37,4,110,0.4
+Compartilhar produto,Compartilhar link por e-mail,Ficticia_Mes_3,37,5,130,0.5
+Compartilhar produto,Copiar link para area de transferencia,Ficticia_Mes_3,37,3,80,0.3
+Avaliacao de produto,Adicionar nota e comentario,Ficticia_Mes_3,37,6,160,0.7
+Avaliacao de produto,Tentar enviar avaliacao em branco,Ficticia_Mes_3,37,4,90,0.4
+Historico de pedidos,Visualizar listagem de pedidos antigos,Ficticia_Mes_4,37,5,140,0.6
+Historico de pedidos,Detalhar um pedido especifico,Ficticia_Mes_4,37,5,120,0.5
+Historico de pedidos,Recomprar itens de um pedido antigo,Ficticia_Mes_4,37,7,200,0.9
+Multiplos cartoes,Pagar com dois cartoes de credito,Ficticia_Mes_5,40,9,280,1.5
+Multiplos cartoes,Pagamento recusado no segundo cartao,Ficticia_Mes_5,40,7,210,1.1
+Notificacoes push,Receber alerta de promocao relampago,Ficticia_Mes_5,40,6,190,0.8
+Notificacoes push,Desativar notificacoes nas configuracoes,Ficticia_Mes_5,40,4,110,0.4
+Lista de desejos,Adicionar produto a lista de desejos,Ficticia_Mes_6,40,4,90,0.4
+Lista de desejos,Mover item da lista para o carrinho,Ficticia_Mes_6,40,5,130,0.5
+Lista de desejos,Remover item da lista de desejos,Ficticia_Mes_6,40,3,80,0.3
+Modo noturno,Alternar aparencia para modo escuro,Ficticia_Mes_6,40,4,100,0.5
+Suporte via chat,Abrir chamado com assistente virtual,Ficticia_Mes_7,40,7,220,1.0
+Suporte via chat,Anexar imagem no fluxo do chat,Ficticia_Mes_7,40,5,160,0.6
+Politica de privacidade,Acessar termos de uso no rodape,Ficticia_Mes_7,40,3,60,0.2
+Recomendacoes,Visualizar produtos recomendados na home,Ficticia_Mes_8,42,5,140,0.5
+Recomendacoes,Atualizar recomendacoes apos compra,Ficticia_Mes_8,42,8,240,1.1
+Multi-idioma,Alterar idioma da interface para espanhol,Ficticia_Mes_8,42,5,120,0.6
+Multi-idioma,Alterar idioma da interface para ingles,Ficticia_Mes_8,42,4,100,0.5
+Controle de estoque,Tentar comprar produto esgotado,Ficticia_Mes_9,42,6,170,0.7
+Controle de estoque,Validar badge de esgotado na listagem,Ficticia_Mes_9,42,3,80,0.3
+Perfil do usuario,Alterar foto de perfil do usuario,Ficticia_Mes_9,42,5,130,0.5
+Perfil do usuario,Atualizar endereco de entrega padrao,Ficticia_Mes_9,42,5,110,0.4
+Faturamento,Emitir segunda via de nota fiscal PDF,Ficticia_Mes_10,42,6,180,0.8
+Faturamento,Visualizar demonstrativo de impostos,Ficticia_Mes_10,42,5,140,0.6
+Rastreamento,Acompanhar status de envio do pedido,Ficticia_Mes_10,42,6,160,0.7
+Rastreamento,Verificar mapa de entrega do produto,Ficticia_Mes_10,42,7,250,1.2
+Assinatura programada,Ativar compra recorrente mensal,Ficticia_Mes_11,45,8,260,1.3
+Assinatura programada,Cancelar assinatura de um produto,Ficticia_Mes_11,45,5,150,0.6
+Assinatura programada,Alterar data de cobranca da assinatura,Ficticia_Mes_11,45,6,170,0.7
+Cashback,Visualizar saldo de cashback acumulado,Ficticia_Mes_11,45,4,110,0.4
+Seguranca da conta,Ativar autenticacao em duas etapas (2FA),Ficticia_Mes_12,45,8,290,1.4
+Seguranca da conta,Tentar login com codigo 2FA expirado,Ficticia_Mes_12,45,5,160,0.6
+Seguranca da conta,Solicitar troca de senha por e-mail,Ficticia_Mes_12,45,5,130,0.5
+Avaliacao da plataforma,Responder pesquisa de NPS pos-compra,Ficticia_Mes_12,45,4,100,0.4
+
